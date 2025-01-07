@@ -1,4 +1,4 @@
-<index.html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -9,20 +9,23 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background: linear-gradient(to bottom, #0033cc, #66ccff);
             color: #333;
         }
         header {
-            background-color: #e63946;
+            background-color: #002366;
             color: #fff;
             padding: 20px 0;
             text-align: center;
         }
-        header h1 {
-            margin: 0;
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
         }
         nav {
-            background-color: #1d3557;
+            background-color: #001a4d;
             color: #fff;
             padding: 10px 0;
             text-align: center;
@@ -42,36 +45,56 @@
             margin: auto;
         }
         .section-title {
-            color: #e63946;
+            color: #0033cc;
             margin-bottom: 10px;
             font-size: 1.5em;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .carousel {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
         }
-        ul li {
-            margin-bottom: 10px;
+        .carousel-item {
+            display: none;
+            width: 100%;
+        }
+        .carousel-item img {
+            width: 100%;
+        }
+        .carousel-item.active {
+            display: block;
+        }
+        button.prev, button.next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 2;
+        }
+        button.prev {
+            left: 10px;
+        }
+        button.next {
+            right: 10px;
         }
         footer {
-            background-color: #1d3557;
+            background-color: #001a4d;
             color: #fff;
             text-align: center;
             padding: 10px 0;
             margin-top: 20px;
-        }
-        .contact {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-        .contact div {
-            text-align: center;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
     <header>
+        <img src="IMG_5780.jpeg" alt="Photo de Bekkari Mélissa">
         <h1>Bekkari Mélissa</h1>
         <p>Responsable Marketing en Développement Commercial</p>
     </header>
@@ -83,15 +106,22 @@
     </nav>
     <section id="experiences">
         <h2 class="section-title">Expériences Professionnelles</h2>
-        <ul>
-            <li><strong>Assistant Marketing (en cours)</strong> - Ninkasi Crolles<br>Démarchage / Prospection</li>
-            <li><strong>Community Manager (Bénévole, Février 2024)</strong> - USSE Handball<br>Création d'affiches, montage vidéo</li>
-            <li><strong>Technico-Commercial Sédentaire</strong> - RUBIX Grenoble (2022-2024)<br>Saisie de commandes, logistique, fidélisation</li>
-            <li><strong>Secrétaire Administrative</strong> - Mairie de Crolles (2022)<br>Accueil, secrétariat</li>
-            <li><strong>Vendeuse</strong> - Foires (2021/2022)<br>Vente de macaron et prêt-à-porter féminin</li>
-            <li><strong>Commerciale (Stage)</strong> - Start Up Sylha (2019)<br>Gestion d'une base Excel, prospection</li>
-            <li><strong>Assistante de Gestion</strong> - Melly Fantaisie (2017)<br>Analyse et positionnement</li>
-        </ul>
+        <div class="carousel">
+            <div class="carousel-item active">
+                <img src="https://via.placeholder.com/800x400" alt="Assistant Marketing">
+                <p><strong>Assistant Marketing</strong> - Ninkasi Crolles<br>Démarchage / Prospection</p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/800x400" alt="Community Manager">
+                <p><strong>Community Manager</strong> - USSE Handball<br>Création d'affiches, montage vidéo</p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/800x400" alt="Technico-Commercial">
+                <p><strong>Technico-Commercial Sédentaire</strong> - RUBIX Grenoble<br>Saisie de commandes, logistique, fidélisation</p>
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">❮</button>
+            <button class="next" onclick="moveSlide(1)">❯</button>
+        </div>
     </section>
     <section id="competences">
         <h2 class="section-title">Compétences</h2>
@@ -109,29 +139,4 @@
         <ul>
             <li><strong>CFP Charmilles</strong> - Bachelor Responsable du Développement Commercial</li>
             <li><strong>CFP Charmilles</strong> - BTS NDRC</li>
-            <li><strong>Lycée Marie Curie</strong> - Baccalauréat STMG (Mention Assez-Bien)</li>
-            <li><strong>Collège Notre Dame de La Villette</strong> - Diplôme National du Brevet (2019)</li>
-        </ul>
-    </section>
-    <section id="contact">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact">
-            <div>
-                <p><strong>Téléphone</strong></p>
-                <p>07.69.80.82.11</p>
-            </div>
-            <div>
-                <p><strong>Email</strong></p>
-                <p>melissabek7777@gmail.com</p>
-            </div>
-            <div>
-                <p><strong>Adresse</strong></p>
-                <p>18 bis place de la liberté, 38400 St Martin D'Hères</p>
-            </div>
-        </div>
-    </section>
-    <footer>
-        &copy; 2025 Bekkari Mélissa. Tous droits réservés.
-    </footer>
-</body>
-</html>
+            <li><
